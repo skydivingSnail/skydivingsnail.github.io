@@ -1,39 +1,420 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Elaina's Website</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfolio — Your Name</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-    <div class="large-container" id="left-container">
-        <div id="title"></div>
-        <img src="images/headshot.png" id="headshot">
-        <div id="socials">
-            <img src="images/email-logo.png">
-            <img src="images/linkedin-logo.png">
-            <img src="images/github-logo.png">
-        </div>
+<!-- ═══════════════════════════════════════════════════════════════
+     HEADER
+     ─ Replace YOUR NAME, YOUR TITLE, YOUR BIO, and the link hrefs.
+     ─ To add your headshot, put your photo inside .headshot and
+       replace the placeholder div with: <img src="photo.jpg" alt="Your Name">
+════════════════════════════════════════════════════════════════ -->
+<header>
+  <div class="headshot-wrap">
+    <div class="headshot">
+      <!-- REPLACE THIS with: <img src="your-photo.jpg" alt="Your Name"> -->
+      <span>photo</span>
     </div>
+  </div>
 
-
-    <div class="large-container" id="right-container">
-        <div class="quick-link" id="about-me">
-            <h3>about me</h3>
-        </div>
-        <div class="quick-link" id="projects">
-            <h3>projects</h3>
-        </div>
-        <div class="quick-link" id="experience">
-            <h3>experience</h3>
-        </div>
-        <div class="quick-link" id="resume">
-            <h3>resume</h3>
-        </div>
+  <div class="hero-text">
+    <div class="hero-name">Your Name</div>
+    <div class="hero-title">Mechanical Engineering · University of Michigan · Class of 2026</div>
+    <p class="hero-bio">
+      Short bio goes here — 2–3 sentences about your interests, what you build,
+      and what you're looking for. Keep it human. Keep it specific.
+    </p>
+    <div class="hero-links">
+      <a class="hero-link" href="https://linkedin.com/in/yourprofile" target="_blank">
+        <!-- LinkedIn icon -->
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+        LinkedIn
+      </a>
+      <a class="hero-link" href="resume.pdf" target="_blank">
+        <!-- Document icon -->
+        <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        Resume
+      </a>
+      <a class="hero-link" href="/cdn-cgi/l/email-protection#0f76607a4f7a6166796a7d7c667b76216a6b7a">
+        <!-- Mail icon -->
+        <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Email
+      </a>
+      <a class="hero-link" href="https://github.com/yourusername" target="_blank">
+        <!-- GitHub icon -->
+        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+        GitHub
+      </a>
     </div>
+  </div>
+</header>
 
+<hr class="divider">
 
+<!-- ═══════════════════════════════════════════════════════════════
+     PROJECTS
+════════════════════════════════════════════════════════════════ -->
+<section class="projects-section">
+  <div class="section-label">Projects</div>
 
+  <!-- Filter buttons — add/remove to match your skill tags below -->
+  <div class="filter-bar" id="filterBar">
+    <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="leadership">Leadership</button>
+    <button class="filter-btn" data-filter="rapid-prototyping">Rapid Prototyping</button>
+    <button class="filter-btn" data-filter="electronics">Electronics</button>
+    <button class="filter-btn" data-filter="embedded-systems">Embedded Systems</button>
+    <button class="filter-btn" data-filter="robotics">Robotics</button>
+    <!-- ADD NEW FILTER: <button class="filter-btn" data-filter="your-skill">Your Skill</button> -->
+  </div>
 
-</body>
-</html>
+  <div class="project-grid" id="projectGrid"></div>
+  <div class="no-results" id="noResults">No projects match that filter.</div>
+</section>
+
+<!-- ─── LIGHTBOX ──────────────────────────────────────────────── -->
+<div id="lightbox">
+  <button id="lightbox-close" aria-label="Close">&times;</button>
+  <img id="lightbox-img" src="" alt="">
+</div>
+
+<footer>
+  Built with HTML &amp; CSS · Hosted on GitHub Pages
+</footer>
+
+<script>
+/* ═══════════════════════════════════════════════════════════════════
+   PROJECT DATA
+   ─────────────────────────────────────────────────────────────────
+   HOW TO ADD A PROJECT:
+   Copy one object, paste at the end of the array, fill in fields.
+
+   MEDIA ARRAY — each item is an object with a `type` field:
+
+     Images (click to open fullscreen lightbox):
+       { type: "image", src: "images/photo.jpg", caption: "optional" }
+
+     Videos (plays inline):
+       { type: "video", src: "videos/demo.mp4", caption: "optional" }
+
+     YouTube / Vimeo embeds:
+       { type: "youtube", id: "dQw4w9WgXcQ", caption: "optional" }
+
+     File attachments (shows as a download card):
+       { type: "file", src: "files/report.pdf", label: "Final Report" }
+       — label is optional; falls back to filename
+       — icon color is auto-detected from extension (pdf, docx, stl, py…)
+       — add note: "…" for a subtitle on the card
+
+   Leave media as [] if you have none.
+
+   HOW TO ADD A NEW SKILL TAG:
+   1. Add slug + color to TAG_COLORS.
+   2. Add slug + label to TAG_LABELS.
+   3. Add a filter <button> in the HTML above.
+   4. Add the slug to whichever projects use it.
+═══════════════════════════════════════════════════════════════════ */
+
+const TAG_COLORS = {
+  "leadership":        "#2D6A4F",
+  "rapid-prototyping": "#9E6B00",
+  "electronics":       "#1B4F8A",
+  "embedded-systems":  "#5A2D8A",
+  "robotics":          "#8A2D2D",
+  // ADD NEW TAG COLOR: "your-skill": "#hex",
+};
+
+const TAG_LABELS = {
+  "leadership":        "Leadership",
+  "rapid-prototyping": "Rapid Prototyping",
+  "electronics":       "Electronics",
+  "embedded-systems":  "Embedded Systems",
+  "robotics":          "Robotics",
+  // ADD NEW TAG LABEL: "your-skill": "Your Skill",
+};
+
+const projects = [
+  {
+    title: "Autonomous Line-Following Robot",
+    blurb: "A PID-controlled robot that navigates a track using IR sensors and a custom PCB.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>Designed and built a two-wheeled robot from scratch for a course competition. The drivetrain uses two
+      DC motors controlled via an H-bridge, with a PID loop running on an ATmega328P reading five IR reflectance
+      sensors at 200 Hz. Tuned Kp, Ki, Kd empirically on a practice track to achieve sub-5 mm path error at
+      0.8 m/s. PCB was designed in KiCad, manufactured by JLCPCB, and hand-soldered. The robot placed 2nd
+      out of 32 teams.</p>
+    `,
+    skills: ["robotics", "electronics", "embedded-systems"],
+    thumb: "",
+    media: [
+      /* example — delete or replace these:
+      { type: "image",   src: "images/robot-top.jpg",   caption: "Top view" },
+      { type: "image",   src: "images/robot-pcb.jpg",   caption: "Custom PCB" },
+      { type: "video",   src: "videos/robot-demo.mp4",  caption: "Competition run" },
+      { type: "youtube", id: "dQw4w9WgXcQ",             caption: "Build timelapse" },
+      { type: "file",    src: "files/robot-report.pdf", label: "Technical Report" },
+      { type: "file",    src: "files/firmware.ino",     label: "Arduino Firmware" },
+      */
+    ],
+  },
+  {
+    title: "Rapid-Prototyped Prosthetic Hand",
+    blurb: "A tendon-driven 3D-printed hand designed for low-cost fabrication and assembly.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>Led a team of four students to design a body-powered prosthetic hand as part of a design-for-manufacturing
+      course. All structural parts were FDM-printed in PETG; actuation uses Dyneema cable routed through PTFE
+      conduit. Full assembly takes under 30 minutes with no special tools. We iterated through 6 prototypes in
+      8 weeks, using DFM analysis to reduce part count by 40%. Presented to a panel of OTs and engineers
+      from a local prosthetics clinic.</p>
+    `,
+    skills: ["rapid-prototyping", "leadership"],
+    thumb: "",
+    media: [],
+  },
+  {
+    title: "Smart Greenhouse Controller",
+    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
+      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
+      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
+      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
+      resistance. System has been running continuously for 6 months.</p>
+    `,
+    skills: ["electronics", "embedded-systems"],
+    thumb: "",
+    media: [],
+  },
+];
+
+/* ═══════════════════════════════════════════════════════════════
+   HELPERS
+═══════════════════════════════════════════════════════════════ */
+
+function fileExt(src) {
+  return (src.split('.').pop() || 'other').toLowerCase();
+}
+function fileIconClass(src) {
+  const ext = fileExt(src);
+  const known = ['pdf','doc','docx','xls','xlsx','ppt','pptx','zip','rar',
+                 'ino','cpp','py','c','stl','step','f3d'];
+  return known.includes(ext) ? ext : 'other';
+}
+function fileName(src) { return src.split('/').pop(); }
+
+/* ═══════════════════════════════════════════════════════════════
+   BUILD TILE
+═══════════════════════════════════════════════════════════════ */
+
+function buildTile(p, idx) {
+  const tile = document.createElement('div');
+  tile.className = 'project-tile';
+  tile.dataset.skills = p.skills.join(',');
+
+  const thumbHtml = p.thumb
+    ? `<img class="tile-thumb" src="${p.thumb}" alt="${p.title}">`
+    : `<div class="tile-thumb-placeholder">cover image</div>`;
+
+  const tagsHtml = p.skills.map(s => {
+    const color = TAG_COLORS[s] || '#555';
+    const label = TAG_LABELS[s] || s;
+    return `<span class="tag" style="background:${color}">${label}</span>`;
+  }).join('');
+
+  const visualItems = (p.media || []).filter(m => ['image','video','youtube'].includes(m.type));
+  const fileItems   = (p.media || []).filter(m => m.type === 'file');
+
+  let galleryHtml = '';
+  if (visualItems.length) {
+    const items = visualItems.map(m => {
+      const cap = m.caption ? `<div class="media-caption">${m.caption}</div>` : '';
+      if (m.type === 'image') return `
+        <div class="media-gallery-item" data-lightbox="${m.src}">
+          <img src="${m.src}" alt="${m.caption || ''}">
+          <div class="img-overlay">
+            <svg viewBox="0 0 24 24"><path d="M15 3h6v6M9 21H3v-6M21 3l-7 7M3 21l7-7"/></svg>
+          </div>
+          ${cap}
+        </div>`;
+      if (m.type === 'video') return `
+        <div class="media-gallery-item" style="cursor:default">
+          <video src="${m.src}" controls></video>${cap}
+        </div>`;
+      if (m.type === 'youtube') return `
+        <div class="media-gallery-item" style="cursor:default;aspect-ratio:16/9">
+          <iframe src="https://www.youtube.com/embed/${m.id}"
+            style="width:100%;height:100%;border:none"
+            allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
+            allowfullscreen></iframe>${cap}
+        </div>`;
+      return '';
+    }).join('');
+    galleryHtml = `
+      <div>
+        <div class="media-section-label">Photos &amp; Videos</div>
+        <div class="media-gallery">${items}</div>
+      </div>`;
+  }
+
+  let filesHtml = '';
+  if (fileItems.length) {
+    const items = fileItems.map(m => {
+      const ext   = fileExt(m.src);
+      const cls   = fileIconClass(m.src);
+      const label = m.label || fileName(m.src);
+      return `
+        <a class="file-item" href="${m.src}" download target="_blank">
+          <div class="file-icon ${cls}">${ext}</div>
+          <div class="file-info">
+            <div class="file-name">${label}</div>
+            ${m.note ? `<div class="file-note">${m.note}</div>` : ''}
+          </div>
+          <svg class="file-download-icon" viewBox="0 0 24 24">
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+            <polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+          </svg>
+        </a>`;
+    }).join('');
+    filesHtml = `
+      <div>
+        <div class="media-section-label">Files &amp; Attachments</div>
+        <div class="file-list">${items}</div>
+      </div>`;
+  }
+
+  tile.innerHTML = `
+    <div class="tile-collapsed" data-idx="${idx}">
+      ${thumbHtml}
+      <div class="tile-summary">
+        <div class="tile-title">${p.title}</div>
+        <div class="tile-blurb">${p.blurb}</div>
+        <div class="tile-tags">${tagsHtml}</div>
+      </div>
+      <button class="tile-expand-btn" aria-label="Expand project" data-idx="${idx}">
+        <svg viewBox="0 0 24 24"><polyline points="6 9 12 15 18 9"/></svg>
+      </button>
+    </div>
+    <div class="tile-expanded" id="expanded-${idx}">
+      <div class="expanded-description">${p.description}</div>
+      ${galleryHtml}
+      ${filesHtml}
+      <button class="collapse-btn" data-idx="${idx}">
+        <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
+        Collapse
+      </button>
+    </div>
+  `;
+  return tile;
+}
+
+/* ═══════════════════════════════════════════════════════════════
+   RENDER / FILTER
+═══════════════════════════════════════════════════════════════ */
+
+const grid = document.getElementById('projectGrid');
+const noResults = document.getElementById('noResults');
+let activeFilter = 'all';
+let openTileIndex = null;
+
+function renderProjects() {
+  grid.innerHTML = '';
+  projects.forEach((p, i) => grid.appendChild(buildTile(p, i)));
+  applyFilter();
+}
+
+function applyFilter() {
+  let visible = 0;
+  grid.querySelectorAll('.project-tile').forEach(tile => {
+    const skills = tile.dataset.skills.split(',');
+    const show = activeFilter === 'all' || skills.includes(activeFilter);
+    tile.classList.toggle('hidden', !show);
+    if (show) visible++;
+  });
+  noResults.style.display = visible === 0 ? 'block' : 'none';
+}
+
+function collapseAll() {
+  document.querySelectorAll('.tile-expanded.open').forEach(el => el.classList.remove('open'));
+  document.querySelectorAll('.tile-expand-btn svg').forEach(svg => svg.style.transform = '');
+  openTileIndex = null;
+}
+
+function expandTile(idx) {
+  const panel = document.getElementById(`expanded-${idx}`);
+  const btn = document.querySelector(`.tile-expand-btn[data-idx="${idx}"] svg`);
+  panel.classList.add('open');
+  if (btn) btn.style.transform = 'rotate(180deg)';
+  openTileIndex = idx;
+}
+
+grid.addEventListener('click', e => {
+  if (e.target.closest('.file-item') || e.target.closest('video') || e.target.closest('iframe')) return;
+
+  const expandBtn       = e.target.closest('.tile-expand-btn');
+  const collapseBtn     = e.target.closest('.collapse-btn');
+  const lightboxTrigger = e.target.closest('[data-lightbox]');
+  const collapsedRow    = e.target.closest('.tile-collapsed');
+
+  if (collapseBtn)     { collapseAll(); return; }
+  if (lightboxTrigger) { openLightbox(lightboxTrigger.dataset.lightbox); return; }
+
+  if (expandBtn || collapsedRow) {
+    const idx = parseInt((expandBtn || collapsedRow).dataset.idx);
+    if (openTileIndex === idx) {
+      collapseAll();
+    } else {
+      collapseAll();
+      expandTile(idx);
+      document.getElementById(`expanded-${idx}`)
+        .scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+  }
+});
+
+document.getElementById('filterBar').addEventListener('click', e => {
+  const btn = e.target.closest('.filter-btn');
+  if (!btn) return;
+  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  activeFilter = btn.dataset.filter;
+  collapseAll();
+  applyFilter();
+});
+
+/* ═══════════════════════════════════════════════════════════════
+   LIGHTBOX
+═══════════════════════════════════════════════════════════════ */
+
+const lightbox      = document.getElementById('lightbox');
+const lightboxImg   = document.getElementById('lightbox-img');
+const lightboxClose = document.getElementById('lightbox-close');
+
+function openLightbox(src) {
+  lightboxImg.src = src;
+  lightbox.classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeLightbox() {
+  lightbox.classList.remove('open');
+  document.body.style.overflow = '';
+  lightboxImg.src = '';
+}
+
+lightboxClose.addEventListener('click', closeLightbox);
+lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+/* ─── GO ─── */
+renderProjects();
+</script>
