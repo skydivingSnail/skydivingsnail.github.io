@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio — Your Name</title>
+  <title>Portfolio — Elaina Mann</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
@@ -20,14 +20,13 @@
 <header>
   <div class="headshot-wrap">
     <div class="headshot">
-      <!-- REPLACE THIS with: <img src="your-photo.jpg" alt="Your Name"> -->
-      <span>photo</span>
+      <img src="media/headshot.png" alt="Elaina Mann">
     </div>
   </div>
 
   <div class="hero-text">
-    <div class="hero-name">Your Name</div>
-    <div class="hero-title">Mechanical Engineering · University of Michigan · Class of 2026</div>
+    <div class="hero-name">Elaina Mann</div>
+    <div class="hero-title">Computer Engineering · Robotics · University of Michigan · Class of 2026</div>
     <p class="hero-bio">
       Short bio goes here — 2–3 sentences about your interests, what you build,
       and what you're looking for. Keep it human. Keep it specific.
@@ -68,7 +67,7 @@
   <!-- Filter buttons — add/remove to match your skill tags below -->
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="leadership">Leadership</button>
+    <button class="filter-btn" data-filter="teamwork">Teamwork</button>
     <button class="filter-btn" data-filter="rapid-prototyping">Rapid Prototyping</button>
     <button class="filter-btn" data-filter="electronics">Electronics</button>
     <button class="filter-btn" data-filter="embedded-systems">Embedded Systems</button>
@@ -124,7 +123,7 @@
 ═══════════════════════════════════════════════════════════════════ */
 
 const TAG_COLORS = {
-  "leadership":        "#2D6A4F",
+  "teamwork":        "#2D6A4F",
   "rapid-prototyping": "#9E6B00",
   "electronics":       "#1B4F8A",
   "embedded-systems":  "#5A2D8A",
@@ -133,7 +132,7 @@ const TAG_COLORS = {
 };
 
 const TAG_LABELS = {
-  "leadership":        "Leadership",
+  "teamwork":        "Teamwork",
   "rapid-prototyping": "Rapid Prototyping",
   "electronics":       "Electronics",
   "embedded-systems":  "Embedded Systems",
@@ -143,7 +142,7 @@ const TAG_LABELS = {
 
 const projects = [
   {
-    title: "Autonomous Line-Following Robot",
+    title: "Semi-Truck Blindspot Detection System",
     blurb: "A PID-controlled robot that navigates a track using IR sensors and a custom PCB.",
     description: `
       <h4>Technical Overview</h4>
@@ -167,7 +166,7 @@ const projects = [
     ],
   },
   {
-    title: "Rapid-Prototyped Prosthetic Hand",
+    title: "Mini Ballast Submarine",
     blurb: "A tendon-driven 3D-printed hand designed for low-cost fabrication and assembly.",
     description: `
       <h4>Technical Overview</h4>
@@ -177,12 +176,57 @@ const projects = [
       8 weeks, using DFM analysis to reduce part count by 40%. Presented to a panel of OTs and engineers
       from a local prosthetics clinic.</p>
     `,
-    skills: ["rapid-prototyping", "leadership"],
+    skills: ["rapid-prototyping", "teamwork"],
     thumb: "",
     media: [],
   },
   {
-    title: "Smart Greenhouse Controller",
+    title: "Ground-Up Processor Design",
+    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
+      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
+      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
+      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
+      resistance. System has been running continuously for 6 months.</p>
+    `,
+    skills: ["electronics", "embedded-systems"],
+    thumb: "",
+    media: [],
+  },
+  {
+    title: "Hydrophone Triangulation",
+    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
+      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
+      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
+      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
+      resistance. System has been running continuously for 6 months.</p>
+    `,
+    skills: ["electronics", "embedded-systems"],
+    thumb: "",
+    media: [],
+  },
+  {
+    title: "Interactive Robot Chef",
+    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
+      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
+      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
+      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
+      resistance. System has been running continuously for 6 months.</p>
+    `,
+    skills: ["electronics", "embedded-systems"],
+    thumb: "",
+    media: [],
+  },
+  {
+    title: "Computer Mouse Controlled by Gesture-Detecting Glove",
     blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
     description: `
       <h4>Technical Overview</h4>
