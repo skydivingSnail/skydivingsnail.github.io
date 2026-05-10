@@ -67,11 +67,12 @@
   <!-- Filter buttons — add/remove to match your skill tags below -->
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="all">All</button>
-    <button class="filter-btn" data-filter="teamwork">Teamwork</button>
-    <button class="filter-btn" data-filter="rapid-prototyping">Rapid Prototyping</button>
     <button class="filter-btn" data-filter="electronics">Electronics</button>
+    <button class="filter-btn" data-filter="software">Software</button>
     <button class="filter-btn" data-filter="embedded-systems">Embedded Systems</button>
     <button class="filter-btn" data-filter="robotics">Robotics</button>
+    <button class="filter-btn" data-filter="cad">CAD</button>
+
     <!-- ADD NEW FILTER: <button class="filter-btn" data-filter="your-skill">Your Skill</button> -->
   </div>
 
@@ -123,17 +124,17 @@
 ═══════════════════════════════════════════════════════════════════ */
 
 const TAG_COLORS = {
-  "teamwork":        "#2D6A4F",
-  "rapid-prototyping": "#9E6B00",
+  //"teamwork":          "#2D6A4F",
+  "cad":               "#9E6B00",
   "electronics":       "#1B4F8A",
   "embedded-systems":  "#5A2D8A",
   "robotics":          "#8A2D2D",
+  "software":          "#8A2D4F",
   // ADD NEW TAG COLOR: "your-skill": "#hex",
 };
 
 const TAG_LABELS = {
-  "teamwork":        "Teamwork",
-  "rapid-prototyping": "Rapid Prototyping",
+  "cad":               "CAD",
   "electronics":       "Electronics",
   "embedded-systems":  "Embedded Systems",
   "robotics":          "Robotics",
@@ -142,18 +143,100 @@ const TAG_LABELS = {
 
 const projects = [
   {
-    title: "Semi-Truck Blindspot Detection System",
-    blurb: "A PID-controlled robot that navigates a track using IR sensors and a custom PCB.",
+    title: "Interactive Robot Chef",
+    blurb: "Bimanual robot system using leader-follower teleoperation data collection and vision-based imitation learning to autonomously execute contact-rich fruit skewering with RGB perception.",
     description: `
       <h4>Technical Overview</h4>
-      <p>Designed and built a two-wheeled robot from scratch for a course competition. The drivetrain uses two
-      DC motors controlled via an H-bridge, with a PID loop running on an ATmega328P reading five IR reflectance
-      sensors at 200 Hz. Tuned Kp, Ki, Kd empirically on a practice track to achieve sub-5 mm path error at
-      0.8 m/s. PCB was designed in KiCad, manufactured by JLCPCB, and hand-soldered. The robot placed 2nd
-      out of 32 teams.</p>
+      <p>PIERCE is a bimanual robot mounted on a 360° rotating base, designed to autonomously assemble fruit skewers
+      by learning from leader-follower teleoperation data rather than hand-coded rules or tactile sensors. The system
+      uses 3 RGB cameras mounted on the robot to perceive the workspace, detecting food items and the skewer holder to 
+      inform the Vision-Language-Action(VLA) model used to drive the robot autonomously. One arm stabilizes the skewer 
+      while the other grasps and inserts fruit pieces, requiring precise bimanual coordination and contact-rich manipulation 
+      of soft, deformable objects. 
+      My primary contributions were the CAD design and 3D printing of the robot arms and rotating base components, planning and
+      implementation of the autonomy pipeline, and providing hours of leader-follower teleoperation data to the VLA model.
+      The project follows a Sense-Plan-Act loop where 
+      camera observations feed into the imitation learning policy, which outputs joint actions executed in closed-loop 
+      with continuous environmental feedback.</p>
     `,
-    skills: ["robotics", "electronics", "embedded-systems"],
-    thumb: "",
+    skills: ["robotics", "software", "cad"],
+    thumb: "media/chef/chef-thumbnail.png",
+    media: [],
+  },
+  {
+    title: "Computer Mouse Controlled by Gesture-Detecting Glove",
+    blurb: "Arduino and Python-based wearable glove using three IMU sensors to translate hand orientation and finger gestures into real-time cursor movement and click events.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>ScreenWave is a wearable input device built at a 24-hour hackathon that translates hand gestures into mouse control, 
+      designed to make presenting and collaborating on screens more fluid and natural. Three accelerometer/magnetometer sensors 
+      mounted on the glove track relative hand position and orientation, which is processed via Python to drive cursor 
+      movement on screen. A button on the glove lets the user toggle control on and off, so casual hand movements don't 
+      accidentally interfere with what's on screen. I primarily led the electronics side of the build, working through 
+      the hardware constraints that come with a 24-hour hackathon to make sensor data as reliable as possible.</p>
+    `,
+    skills: ["software", "robotics"],
+    thumb: "media/nerf-slam/nerf-slam-thumbnail.png",
+    media: [],
+  },
+  {
+    title: "Mini Ballast Submarine",
+    blurb: "NES controller-driven submersible using CAN bus telemetry, PWM-controlled thrusters, and a syringe-based linear actuator ballast system to navigate and relay live depth and sensor data",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>A tethered submersible built around a PVC pipe hull, designed to be manually piloted 
+        using a repurposed NES controller mapped to thruster and ballast controls. Depth and vertical 
+        movement are managed by a pair of linear-actuator-driven syringes that take in or expel water 
+        to adjust buoyancy, while two side-mounted thrusters handle forward motion and turning. The 
+        submersible communicates with a ground station over CAN bus through a physical tether, relaying 
+        live sensor data including depth, water temperature, flow rate, and relative heading. All sensor 
+        readings are displayed in real time on a graphical LCD at the ground station, giving the pilot 
+        situational awareness during operation. The electronics are centered around a Nucleo microcontroller 
+        running PWM signals to the ESCs and H-bridge, with sensor data collected via I2C and a custom 
+        protocol for the flow meter.</p>
+    `,
+    skills: ["embedded-systems", "robotics", "electronics", "software", "cad"],
+    thumb: "media/minisub/sub-thumbnail.png",
+    media: [],
+  },
+  {
+    title: "Ground-Up Processor Design",
+    blurb: "SystemVerilog implementation of a 3-way superscalar out-of-order processor with GShare branch prediction, early branch resolution, and a non-blocking banked cache hierarchy achieving 8.44ns clock period and 1.003 CPI.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>This processor was designed and implemented in SystemVerilog, 
+      achieving a clock period of 8.44ns and an average CPI of 1.003 in its optimal 3-way superscalar 
+      configuration. The architecture features out-of-order execution via a reservation station, reorder buffer, 
+      and register renaming through a freelist and map table, with support for up to N instructions dispatched, 
+      issued, and retired per cycle. Branch performance is improved through a GShare predictor with a 10-bit
+      branch history register and early branch resolution that saves checkpoints to enable fast pipeline recovery 
+      on mispredictions, saving roughly 4.89 cycles per misprediction compared to retiring to fix branches. The 
+      memory system includes a non-blocking banked instruction cache with aggressive prefetching, a 32-banked 
+      non-blocking data cache with a 16-entry MSHR table, and a 4-line fully associative victim cache to capture 
+      the benefits of associativity without impacting the critical path. The store queue supports byte-level 
+      store-to-load forwarding to prevent deadlocks and reduce load latency in the presence of out-of-order 
+      memory operations.</p>
+    `,
+    skills: ["software"],
+    thumb: "media/processor/processor-thumbnail.png",
+    media: [],
+  },
+  {
+    title: "Semi-Truck Blindspot Detection System",
+    blurb: "Dual-PCB embedded system using ESP32 microcontrollers and PGA460 ultrasonic sensors to detect vehicles in blind spots and communicate alerts wirelessly over BLE.",
+    description: `
+      <h4>Technical Overview</h4>
+      <p>BlindSpot Barnacles addresses the fact that roughly a third of semi-truck and car collisions involve blind spot zones, 
+      by providing a non-invasive detection system that can attach to most vehicles. The system uses two custom-designed PCBs, 
+      a "Barnacle" sensor unit and an Indicator unit, that communicate wirelessly over Bluetooth Low Energy. Each Barnacle 
+      mounts magnetically to the side of the vehicle and uses an ultrasonic sensor paired with a PGA460 signal processing IC 
+      to detect vehicles in the blind spot range, reporting status to the Indicator every 50ms. When a vehicle is detected, 
+      the dashboard-mounted Indicator lights up an LED after a short debounce to reduce false positives. A companion iOS app 
+      allows users to configure which Barnacles are paired to which Indicator, monitor live diagnostic logs, and enable a 
+      driving mode that sends notifications if a device connection is lost.</p>
+    `,
+    skills: ["embedded-systems", "robotics", "electronics", "software"],
+    thumb: "media/blindspot-barnacles/thumbnail-barnacle.png",
     media: [
       /* example — delete or replace these:
       { type: "image",   src: "images/robot-top.jpg",   caption: "Top view" },
@@ -166,78 +249,19 @@ const projects = [
     ],
   },
   {
-    title: "Mini Ballast Submarine",
-    blurb: "A tendon-driven 3D-printed hand designed for low-cost fabrication and assembly.",
-    description: `
-      <h4>Technical Overview</h4>
-      <p>Led a team of four students to design a body-powered prosthetic hand as part of a design-for-manufacturing
-      course. All structural parts were FDM-printed in PETG; actuation uses Dyneema cable routed through PTFE
-      conduit. Full assembly takes under 30 minutes with no special tools. We iterated through 6 prototypes in
-      8 weeks, using DFM analysis to reduce part count by 40%. Presented to a panel of OTs and engineers
-      from a local prosthetics clinic.</p>
-    `,
-    skills: ["rapid-prototyping", "teamwork"],
-    thumb: "",
-    media: [],
-  },
-  {
-    title: "Ground-Up Processor Design",
-    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
-    description: `
-      <h4>Technical Overview</h4>
-      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
-      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
-      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
-      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
-      resistance. System has been running continuously for 6 months.</p>
-    `,
-    skills: ["electronics", "embedded-systems"],
-    thumb: "",
-    media: [],
-  },
-  {
-    title: "Hydrophone Triangulation",
-    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
-    description: `
-      <h4>Technical Overview</h4>
-      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
-      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
-      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
-      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
-      resistance. System has been running continuously for 6 months.</p>
-    `,
-    skills: ["electronics", "embedded-systems"],
-    thumb: "",
-    media: [],
-  },
-  {
-    title: "Interactive Robot Chef",
-    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
-    description: `
-      <h4>Technical Overview</h4>
-      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
-      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
-      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
-      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
-      resistance. System has been running continuously for 6 months.</p>
-    `,
-    skills: ["electronics", "embedded-systems"],
-    thumb: "",
-    media: [],
-  },
-  {
     title: "Computer Mouse Controlled by Gesture-Detecting Glove",
-    blurb: "ESP32-based system that monitors temperature, humidity, and soil moisture with a web dashboard.",
+    blurb: "Arduino and Python-based wearable glove using three IMU sensors to translate hand orientation and finger gestures into real-time cursor movement and click events.",
     description: `
       <h4>Technical Overview</h4>
-      <p>Built a distributed sensor network using three ESP32 nodes communicating over MQTT to a Raspberry Pi
-      broker. Sensors include a DHT22 for ambient conditions and capacitive soil moisture probes.
-      The Pi serves a lightweight Flask dashboard that logs data to SQLite and sends email alerts
-      when thresholds are exceeded. Enclosures were designed in Fusion 360 and printed in ASA for UV
-      resistance. System has been running continuously for 6 months.</p>
+      <p>ScreenWave is a wearable input device built at a 24-hour hackathon that translates hand gestures into mouse control, 
+      designed to make presenting and collaborating on screens more fluid and natural. Three accelerometer/magnetometer sensors 
+      mounted on the glove track relative hand position and orientation, which is processed via Python to drive cursor 
+      movement on screen. A button on the glove lets the user toggle control on and off, so casual hand movements don't 
+      accidentally interfere with what's on screen. I primarily led the electronics side of the build, working through 
+      the hardware constraints that come with a 24-hour hackathon to make sensor data as reliable as possible.</p>
     `,
     skills: ["electronics", "embedded-systems"],
-    thumb: "",
+    thumb: "media/hackathon/hackathon-thumbnail.png",
     media: [],
   },
 ];
