@@ -3,20 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Portfolio — Elaina Mann</title>
+  <title>Elaina's Project Portfolio</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=Fira+Code:wght@300;400;500&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
-<!-- ═══════════════════════════════════════════════════════════════
-     HEADER
-     ─ Replace YOUR NAME, YOUR TITLE, YOUR BIO, and the link hrefs.
-     ─ To add your headshot, put your photo inside .headshot and
-       replace the placeholder div with: <img src="photo.jpg" alt="Your Name">
-════════════════════════════════════════════════════════════════ -->
+  
 <header>
   <div class="headshot-wrap">
     <div class="headshot">
@@ -28,8 +22,11 @@
     <div class="hero-name">Elaina Mann</div>
     <div class="hero-title">Computer Engineering · Robotics · University of Michigan · Class of 2026</div>
     <p class="hero-bio">
-      Short bio goes here — 2–3 sentences about your interests, what you build,
-      and what you're looking for. Keep it human. Keep it specific.
+      Hands-on Computer Engineering and Robotics Engineering graduate with experience developing autonomous 
+      robotic systems from concept to deployment. Skilled in embedded systems engineering, robot software,
+      sensor integration, and electrical systems, with a strong foundation in robot perception and autonomy. 
+      Experienced in leading end-to-end technical projects, working closely with multidisciplinary teams, 
+      and delivering robust systems under tight deadlines.
     </p>
     <div class="hero-links">
       <a class="hero-link" href="https://www.linkedin.com/in/elaina-mann-589975156" target="_blank">
@@ -42,11 +39,10 @@
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         Resume
       </a>
-      <a class="hero-link" href="mailto:elainamn@umich.edu">
-        <!-- Mail icon -->
+      <button class="hero-link" onclick="copyEmail()" id="email-btn">
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
-      </a>
+      </button>
       <!-- <a class="hero-link" href="https://github.com/yourusername" target="_blank"> -->
         <!-- GitHub icon -->
         <!-- <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> -->
@@ -146,6 +142,7 @@ const TAG_LABELS = {
 const projects = [
   {
     title: "Interactive Robot Chef",
+    subtitle: "Term Project",
     blurb: "Bimanual robot system using leader-follower teleoperation data collection and vision-based imitation learning to autonomously execute contact-rich fruit skewering with RGB perception.",
     description: `
       <h4>Technical Overview</h4>
@@ -161,7 +158,7 @@ const projects = [
       camera observations feed into the imitation learning policy, which outputs joint actions executed in closed-loop 
       with continuous environmental feedback.</p>
     `,
-    skills: ["robotics", "machine-learning", "software", "cad"],
+    skills: ["robotics", "machine-learning", "software", "cad", "electronics"],
     thumb: "media/chef/chef-thumbnail.png",
     media: [
       { type: "image", src: "media/chef/chef-poster.png", label: "Project Poster", caption: "Project Poster" },
@@ -176,6 +173,7 @@ const projects = [
   },
   {
     title: "Uncertainty-Aware NeRF-SLAM",
+    subtitle: "Term Project",
     blurb: "Improved neural implicit SLAM by incorporating entropy-based uncertainty into keyframe selection, reducing localization error by 28%.",
     description: `
       <h4>Technical Overview</h4>
@@ -204,6 +202,7 @@ const projects = [
   },
   {
     title: "Mini Ballast Submarine",
+    subtitle: "Term Project",
     blurb: "NES controller-driven submersible using CAN bus telemetry, PWM-controlled thrusters, and a syringe-based linear actuator ballast system to navigate and relay live depth and sensor data",
     description: `
       <h4>Technical Overview</h4>
@@ -235,6 +234,7 @@ const projects = [
   },
   {
     title: "Ground-Up Processor Design",
+    subtitle: "Term Project",
     blurb: "SystemVerilog implementation of a 3-way superscalar out-of-order processor with GShare branch prediction, early branch resolution, and a non-blocking banked cache hierarchy achieving 8.44ns clock period and 1.003 CPI.",
     description: `
       <h4>Technical Overview</h4>
@@ -265,6 +265,7 @@ const projects = [
   },
   {
     title: "Semi-Truck Blindspot Detection System",
+    subtitle: "Term Project",
     blurb: "Dual-PCB embedded system using ESP32 microcontrollers and PGA460 ultrasonic sensors to detect vehicles in blind spots and communicate alerts wirelessly over BLE.",
     description: `
       <h4>Technical Overview</h4>
@@ -292,6 +293,7 @@ const projects = [
   
   {
     title: "Computer Mouse Controlled by Gesture-Detecting Glove",
+    subtitle: "Hackathon Project",
     blurb: "Arduino and Python-based wearable glove using three IMU sensors to translate hand orientation and finger gestures into real-time cursor movement and click events. Won best hack in the hardware track at MHacks 2025.",
     description: `
       <h4>Technical Overview</h4>
@@ -436,6 +438,7 @@ function buildTile(p, idx) {
       ${thumbHtml}
       <div class="tile-summary">
         <div class="tile-title">${p.title}</div>
+        ${p.subtitle ? `<div class="tile-subtitle">${p.subtitle}</div>` : ''}
         <div class="tile-blurb">${p.blurb}</div>
         <div class="tile-tags">${tagsHtml}</div>
       </div>
@@ -480,7 +483,6 @@ function buildTile(p, idx) {
 
 const grid = document.getElementById('projectGrid');
 const noResults = document.getElementById('noResults');
-let activeFilter = 'all';
 let openTileIndex = null;
 
 function renderProjects() {
@@ -493,7 +495,7 @@ function applyFilter() {
   let visible = 0;
   grid.querySelectorAll('.project-tile').forEach(tile => {
     const skills = tile.dataset.skills.split(',');
-    const show = activeFilter === 'all' || skills.includes(activeFilter);
+    const show = activeFilters.size === 0 || [...activeFilters].every(f => skills.includes(f));
     tile.classList.toggle('hidden', !show);
     if (show) visible++;
   });
@@ -538,12 +540,31 @@ grid.addEventListener('click', e => {
   }
 });
 
+let activeFilters = new Set();
+
 document.getElementById('filterBar').addEventListener('click', e => {
   const btn = e.target.closest('.filter-btn');
   if (!btn) return;
-  document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-  btn.classList.add('active');
-  activeFilter = btn.dataset.filter;
+  const filter = btn.dataset.filter;
+
+  if (filter === 'all') {
+    activeFilters.clear();
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+  } else {
+    document.querySelector('.filter-btn[data-filter="all"]').classList.remove('active');
+    if (activeFilters.has(filter)) {
+      activeFilters.delete(filter);
+      btn.classList.remove('active');
+    } else {
+      activeFilters.add(filter);
+      btn.classList.add('active');
+    }
+    if (activeFilters.size === 0) {
+      document.querySelector('.filter-btn[data-filter="all"]').classList.add('active');
+    }
+  }
+
   collapseAll();
   applyFilter();
 });
@@ -565,6 +586,16 @@ function closeLightbox() {
   lightbox.classList.remove('open');
   document.body.style.overflow = '';
   lightboxImg.src = '';
+}
+
+function copyEmail() {
+  const email = 'elainamn@umich.edu';
+  navigator.clipboard.writeText(email);
+  const btn = document.getElementById('email-btn');
+  btn.textContent = 'Copied!';
+  setTimeout(() => btn.innerHTML = `
+    <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    Email`, 2000);
 }
 
 lightboxClose.addEventListener('click', closeLightbox);
