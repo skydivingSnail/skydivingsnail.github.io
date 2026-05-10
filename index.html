@@ -32,26 +32,26 @@
       and what you're looking for. Keep it human. Keep it specific.
     </p>
     <div class="hero-links">
-      <a class="hero-link" href="https://linkedin.com/in/yourprofile" target="_blank">
+      <a class="hero-link" href="https://www.linkedin.com/in/elaina-mann-589975156" target="_blank">
         <!-- LinkedIn icon -->
         <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
         LinkedIn
       </a>
-      <a class="hero-link" href="resume.pdf" target="_blank">
+      <a class="hero-link" href="media/resume.pdf" target="_blank">
         <!-- Document icon -->
         <svg viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
         Resume
       </a>
-      <a class="hero-link" href="/cdn-cgi/l/email-protection#0f76607a4f7a6166796a7d7c667b76216a6b7a">
+      <a class="hero-link" href="mailto:elainamn@umich.edu">
         <!-- Mail icon -->
         <svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
         Email
       </a>
-      <a class="hero-link" href="https://github.com/yourusername" target="_blank">
+      <!-- <a class="hero-link" href="https://github.com/yourusername" target="_blank"> -->
         <!-- GitHub icon -->
-        <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        GitHub
-      </a>
+        <!-- <svg viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg> -->
+        <!-- GitHub -->
+      <!-- </a> -->
     </div>
   </div>
 </header>
@@ -67,10 +67,11 @@
   <!-- Filter buttons — add/remove to match your skill tags below -->
   <div class="filter-bar" id="filterBar">
     <button class="filter-btn active" data-filter="all">All</button>
+    <button class="filter-btn" data-filter="robotics">Robotics</button>
+    <button class="filter-btn" data-filter="embedded-systems">Embedded Systems</button>
+    <button class="filter-btn" data-filter="machine-learning">Machine Learning</button>
     <button class="filter-btn" data-filter="electronics">Electronics</button>
     <button class="filter-btn" data-filter="software">Software</button>
-    <button class="filter-btn" data-filter="embedded-systems">Embedded Systems</button>
-    <button class="filter-btn" data-filter="robotics">Robotics</button>
     <button class="filter-btn" data-filter="cad">CAD</button>
 
     <!-- ADD NEW FILTER: <button class="filter-btn" data-filter="your-skill">Your Skill</button> -->
@@ -124,7 +125,7 @@
 ═══════════════════════════════════════════════════════════════════ */
 
 const TAG_COLORS = {
-  //"teamwork":          "#2D6A4F",
+  "machine-learning":          "#2D6A4F",
   "cad":               "#9E6B00",
   "electronics":       "#1B4F8A",
   "embedded-systems":  "#5A2D8A",
@@ -138,6 +139,7 @@ const TAG_LABELS = {
   "electronics":       "Electronics",
   "embedded-systems":  "Embedded Systems",
   "robotics":          "Robotics",
+  "machine-learning":   "Machine Learning",
   // ADD NEW TAG LABEL: "your-skill": "Your Skill",
 };
 
@@ -159,25 +161,46 @@ const projects = [
       camera observations feed into the imitation learning policy, which outputs joint actions executed in closed-loop 
       with continuous environmental feedback.</p>
     `,
-    skills: ["robotics", "software", "cad"],
+    skills: ["robotics", "machine-learning", "software", "cad"],
     thumb: "media/chef/chef-thumbnail.png",
-    media: [],
+    media: [
+      { type: "image", src: "media/chef/chef-poster.png", label: "Project Poster", caption: "Project Poster" },
+      { type: "youtube", id: "L7HPc8NRHl8", label: "Project Video" },
+      { type: "file", src: "media/chef/chef-paper.pdf", label: "Full Paper (PDF)" }
+    ],
+    collaborators: [
+      { name: "Avery Xi",   linkedin: "https://www.linkedin.com/in/averyxi" },
+      { name: "Qixin Xiao",   linkedin: "https://www.linkedin.com/in/qixin-xiao-a4b775272/" },
+      { name: "Medhya Sundher",   linkedin: "https://www.linkedin.com/in/msundher/" },
+    ],
   },
   {
-    title: "Computer Mouse Controlled by Gesture-Detecting Glove",
-    blurb: "Arduino and Python-based wearable glove using three IMU sensors to translate hand orientation and finger gestures into real-time cursor movement and click events.",
+    title: "Uncertainty-Aware NeRF-SLAM",
+    blurb: "Improved neural implicit SLAM by incorporating entropy-based uncertainty into keyframe selection, reducing localization error by 28%.",
     description: `
       <h4>Technical Overview</h4>
-      <p>ScreenWave is a wearable input device built at a 24-hour hackathon that translates hand gestures into mouse control, 
-      designed to make presenting and collaborating on screens more fluid and natural. Three accelerometer/magnetometer sensors 
-      mounted on the glove track relative hand position and orientation, which is processed via Python to drive cursor 
-      movement on screen. A button on the glove lets the user toggle control on and off, so casual hand movements don't 
-      accidentally interfere with what's on screen. I primarily led the electronics side of the build, working through 
-      the hardware constraints that come with a 24-hour hackathon to make sensor data as reliable as possible.</p>
+      <p>This project extends a state-of-the-art neural SLAM system, which simultaneously builds a 3D map
+      of an environment and tracks camera position in real time using a neural network. The core contribution
+      is a smarter strategy for choosing which video frames to learn from: rather than always prioritizing
+      frames with the most spatial overlap, the system also considers how uncertain the neural network is
+      about each frame's geometry. Frames the network is less confident about carry more new information,
+      so focusing on them leads to faster and more accurate learning.</p>
+      <p>To make this practical for real-time use, the uncertainty calculation was redesigned to process
+      all frames simultaneously in a single batch rather than one at a time, cutting the computational
+      overhead significantly. Testing on a standard indoor dataset showed a 28% reduction in camera
+      localization error compared to the baseline system, with reconstruction quality remaining the same,
+      validating that uncertainty is a useful signal for guiding how a neural network learns a scene.</p>
     `,
-    skills: ["software", "robotics"],
+    skills: ["machine-learning", "software", "robotics"],
     thumb: "media/nerf-slam/nerf-slam-thumbnail.png",
-    media: [],
+    media: [
+      { type: "link", src: "https://stunning-syrniki-05e831.netlify.app/", label: "Project Website" },
+      { type: "file", src: "media/nerf-slam/nerf-slam-paper.pdf", label: "Full Paper (PDF)" },
+    ],
+    collaborators: [
+      { name: "Tzu-Chieh Tai",   linkedin: "https://www.linkedin.com/in/tzu-chieh-tai-209393363/" },
+      { name: "Erika Chen",   linkedin: "https://www.linkedin.com/in/erikachen1" },
+    ],
   },
   {
     title: "Mini Ballast Submarine",
@@ -197,7 +220,18 @@ const projects = [
     `,
     skills: ["embedded-systems", "robotics", "electronics", "software", "cad"],
     thumb: "media/minisub/sub-thumbnail.png",
-    media: [],
+    media: [
+      { type: "youtube", id: "7lMfl2H8l0Y", label: "Project Video" },
+      { type: "image", src: "media/minisub/sub-wiring.png", label: "Minisub Wiring Diagram", caption: "Minisub Wiring Diagram" },
+      { type: "image", src: "media/minisub/sub-ground-control-wiring.png", label: "Minisub Ground Control Wiring Diagram", caption: "Minisub Ground Control Wiring Diagram" },
+      { type: "file", src: "media/minisub/sub-poster.pdf", label: "Project Poster" },
+    ],
+    collaborators: [
+      { name: "Jason Beissel",   linkedin: "https://www.linkedin.com/in/jason-beissel/" },
+      { name: "Hythem Beydoun",   linkedin: "https://www.linkedin.com/in/hythemb" },
+      { name: "Meredith Doan",   linkedin: "https://www.linkedin.com/in/mgdoan/" },
+      { name: "Colin Lam",   linkedin: "https://www.linkedin.com/in/colin-lam-668b5919b/" },
+    ],
   },
   {
     title: "Ground-Up Processor Design",
@@ -219,7 +253,15 @@ const projects = [
     `,
     skills: ["software"],
     thumb: "media/processor/processor-thumbnail.png",
-    media: [],
+    media: [
+      { type: "file", src: "media/processor/processor-report.pdf", label: "Full Paper (PDF)" },
+    ],
+    collaborators: [
+      { name: "Griffin Schenker",   linkedin: "https://www.linkedin.com/in/griffin-schenker" },
+      { name: "Shinjo Satoh",   linkedin: "https://www.linkedin.com/in/shinjo-satoh-6b5115236/" },
+      { name: "Yash Sinha",   linkedin: "https://www.linkedin.com/in/yashsi" },
+      { name: "Abraham Vega"},
+    ],
   },
   {
     title: "Semi-Truck Blindspot Detection System",
@@ -238,19 +280,19 @@ const projects = [
     skills: ["embedded-systems", "robotics", "electronics", "software"],
     thumb: "media/blindspot-barnacles/thumbnail-barnacle.png",
     media: [
-      /* example — delete or replace these:
-      { type: "image",   src: "images/robot-top.jpg",   caption: "Top view" },
-      { type: "image",   src: "images/robot-pcb.jpg",   caption: "Custom PCB" },
-      { type: "video",   src: "videos/robot-demo.mp4",  caption: "Competition run" },
-      { type: "youtube", id: "dQw4w9WgXcQ",             caption: "Build timelapse" },
-      { type: "file",    src: "files/robot-report.pdf", label: "Technical Report" },
-      { type: "file",    src: "files/firmware.ino",     label: "Arduino Firmware" },
-      */
+      { type: "file", src: "media/blindspot-barnacles/barnacle-poster.pdf", label: "Project Poster (PDF)" },
+    ],
+    collaborators: [
+      { name: "Hythem Beydoun",   linkedin: "https://www.linkedin.com/in/hythemb" },
+      { name: "Meredith Doan",   linkedin: "https://www.linkedin.com/in/mgdoan/" },
+      { name: "Muhammad Alnasser",   linkedin: "https://www.linkedin.com/in/muhammad-alnasser-891a25210/" },
+      { name: "Sara Haycox"},
     ],
   },
+  
   {
     title: "Computer Mouse Controlled by Gesture-Detecting Glove",
-    blurb: "Arduino and Python-based wearable glove using three IMU sensors to translate hand orientation and finger gestures into real-time cursor movement and click events.",
+    blurb: "Arduino and Python-based wearable glove using three IMU sensors to translate hand orientation and finger gestures into real-time cursor movement and click events. Won best hack in the hardware track at MHacks 2025.",
     description: `
       <h4>Technical Overview</h4>
       <p>ScreenWave is a wearable input device built at a 24-hour hackathon that translates hand gestures into mouse control, 
@@ -262,7 +304,13 @@ const projects = [
     `,
     skills: ["electronics", "embedded-systems"],
     thumb: "media/hackathon/hackathon-thumbnail.png",
-    media: [],
+    media: [
+      { type: "youtube", id: "D9AHt27kyhQ", label: "Project Video" },
+      { type: "link", src: "https://devpost.com/software/screenwave?_gl=1*1bp3tp1*_gcl_au*MTM2ODE1Njk3My4xNzc4Mzc2ODk3*_ga*MTE3ODgyNjM1NS4xNzc4Mzc2ODk4*_ga_0YHJK3Y10M*czE3NzgzNzY4OTckbzEkZzAkdDE3NzgzNzY4OTckajYwJGwwJGgw", label: "Devpost", note: "Hackathon submission" },
+    ],
+    collaborators: [
+      { name: "Amy Li"},
+    ],
   },
 ];
 
@@ -302,6 +350,7 @@ function buildTile(p, idx) {
 
   const visualItems = (p.media || []).filter(m => ['image','video','youtube'].includes(m.type));
   const fileItems   = (p.media || []).filter(m => m.type === 'file');
+  const linkItems   = (p.media || []).filter(m => m.type === 'link');
 
   let galleryHtml = '';
   if (visualItems.length) {
@@ -320,7 +369,7 @@ function buildTile(p, idx) {
           <video src="${m.src}" controls></video>${cap}
         </div>`;
       if (m.type === 'youtube') return `
-        <div class="media-gallery-item" style="cursor:default;aspect-ratio:16/9">
+        <div class="media-gallery-item" style="cursor:default;">
           <iframe src="https://www.youtube.com/embed/${m.id}"
             style="width:100%;height:100%;border:none"
             allow="accelerometer;autoplay;clipboard-write;encrypted-media;gyroscope;picture-in-picture"
@@ -335,6 +384,27 @@ function buildTile(p, idx) {
       </div>`;
   }
 
+  let linksHtml = '';
+  if (linkItems.length) {
+    const items = linkItems.map(m => `
+      <a class="file-item" href="${m.src}" target="_blank" rel="noopener noreferrer">
+        <div class="file-icon other" style="background:#2563EB;font-size:1rem;">↗</div>
+        <div class="file-info">
+          <div class="file-name">${m.label || m.src}</div>
+          ${m.note ? `<div class="file-note">${m.note}</div>` : ''}
+        </div>
+        <svg class="file-download-icon" viewBox="0 0 24 24">
+          <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+          <polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/>
+        </svg>
+      </a>`).join('');
+    linksHtml = `
+      <div>
+        <div class="media-section-label">Links</div>
+        <div class="file-list">${items}</div>
+      </div>`;
+  }
+
   let filesHtml = '';
   if (fileItems.length) {
     const items = fileItems.map(m => {
@@ -342,7 +412,7 @@ function buildTile(p, idx) {
       const cls   = fileIconClass(m.src);
       const label = m.label || fileName(m.src);
       return `
-        <a class="file-item" href="${m.src}" download target="_blank">
+        <a class="file-item" href="${m.src}" target="_blank" rel="noopener noreferrer">
           <div class="file-icon ${cls}">${ext}</div>
           <div class="file-info">
             <div class="file-name">${label}</div>
@@ -375,7 +445,25 @@ function buildTile(p, idx) {
     </div>
     <div class="tile-expanded" id="expanded-${idx}">
       <div class="expanded-description">${p.description}</div>
+      ${p.collaborators && p.collaborators.length ? `
+        <div>
+          <div class="media-section-label">Collaborators</div>
+          <div class="collaborator-list">
+            ${p.collaborators.map(c => c.linkedin
+              ? `<a class="collaborator" href="${c.linkedin}" target="_blank" rel="noopener noreferrer">
+                  <div class="collaborator-avatar">${c.name.split(' ').map(w => w[0]).join('').slice(0,2)}</div>
+                  <span class="collaborator-name">${c.name}</span>
+                  <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                </a>`
+              : `<div class="collaborator">
+                  <div class="collaborator-avatar">${c.name.split(' ').map(w => w[0]).join('').slice(0,2)}</div>
+                  <span class="collaborator-name">${c.name}</span>
+                </div>`
+            ).join('')}
+          </div>
+        </div>` : ''}
       ${galleryHtml}
+      ${linksHtml}
       ${filesHtml}
       <button class="collapse-btn" data-idx="${idx}">
         <svg viewBox="0 0 24 24"><polyline points="18 15 12 9 6 15"/></svg>
